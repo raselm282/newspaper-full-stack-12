@@ -29,7 +29,7 @@ const AddArticles = () => {
   const { data: publishers, isLoading } = useQuery({
     queryKey: ["publishers"],
     queryFn: async () => {
-      const { data } = await axiosSecure(`/addPublisher`);
+      const { data } = await axiosPublic(`/publisherData`);
       return data;
     },
   });
@@ -75,7 +75,7 @@ const AddArticles = () => {
           status: "pending",
         };
 
-        const articlesRes = await axiosSecure.post("/articles", articleData, {
+        const articlesRes = await axiosPublic.post("/articles", articleData, {
           withCredentials: true,
         });
 

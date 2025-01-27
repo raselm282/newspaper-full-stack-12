@@ -9,7 +9,7 @@ const Dashboard = () => {
             <title>Dashboard</title>
             </Helmet>
             <div className='w-[20%]'>
-                <ul className="menu bg-base-200 rounded-box w-56">
+                <ul className="menu min-h-screen bg-orange-200 rounded-box w-56">
                     <li><NavLink to={'adminHome'}>Admin Home</NavLink></li>
                     <li><NavLink to={'allUsers'}>All Users</NavLink></li>
                     <li><NavLink to={'allArticlesPage'}>All Articles</NavLink></li>

@@ -72,7 +72,7 @@ import ErrorPage from "../Pages/ErrorPage";
                 children: [
                     {
                         path: "allArticlesPage",
-                        element: <PrivateRoute><AdminRoute><AllArticlesPage></AllArticlesPage></AdminRoute></PrivateRoute>
+                        element: <PrivateRoute><AllArticlesPage></AllArticlesPage></PrivateRoute>
                     },
                     {
                         path: "allUsers",
