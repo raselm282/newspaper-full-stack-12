@@ -5,7 +5,7 @@ const usePublishers = () => {
       const {data: publishers = [], isPending: loading} = useQuery({
         queryKey: ['publishers'], 
         queryFn: async() =>{
-            const res = await axiosPublic.get('/publisherData');
+            const res = await axiosPublic.get('/publishersData');
             return res.data;
         }
     })

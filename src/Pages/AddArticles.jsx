@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import useAxiosSecure from "../Hooks/useAxiosSecure";
+// import useAxiosSecure from "../Hooks/useAxiosSecure";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import { Controller, useForm } from "react-hook-form";
 // import Select from "react-select/base";
@@ -25,11 +25,11 @@ const AddArticles = () => {
     formState: { errors },
   } = useForm();
   const axiosPublic = useAxiosPublic();
-  const axiosSecure = useAxiosSecure();
-  const { data: publishers, isLoading } = useQuery({
+  // const axiosSecure = useAxiosSecure();
+  const { data: publishers } = useQuery({
     queryKey: ["publishers"],
     queryFn: async () => {
-      const { data } = await axiosPublic(`/publisherData`);
+      const { data } = await axiosPublic(`/publishersData`);
       return data;
     },
   });
@@ -55,7 +55,7 @@ const AddArticles = () => {
           "content-type": "multipart/form-data",
         },
       });
-
+console.log(res.data);
       if (res.data.success) {
         const articleData = {
           title: data.title,
@@ -75,10 +75,8 @@ const AddArticles = () => {
           status: "pending",
         };
 
-        const articlesRes = await axiosPublic.post("/articles", articleData, {
-          withCredentials: true,
-        });
-
+        const articlesRes = await axiosPublic.post("/articlesPost", articleData);
+console.log(articlesRes.data);
         if (articlesRes.data.insertedId) {
           reset();
           toast.success(`${data.title} Add Successfully`)
@@ -87,7 +85,7 @@ const AddArticles = () => {
         }
       }
     } catch (error) {
-      toast.error("error", error);
+      console.error("error", error);
     }
   };
   //   const onSubmit = async (data) => {

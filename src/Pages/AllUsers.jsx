@@ -3,6 +3,7 @@ import useUsers from "../Hooks/useUsers";
 import useAxiosSecure from "../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
+import LoadingSpinner from "../Components/LoadingSpinner";
 
 const AllUsers = () => {
   const [usersData, loading, refetch] = useUsers();
@@ -10,8 +11,7 @@ const AllUsers = () => {
   console.log(usersData);
 
   // Handle making a user an admin
-  // Handle making a user an admin
-  // Handle making a user an admin  ds
+
   const makeAdmin = async (id, name, email, photo) => {
     const confirmAction = window.confirm(
       "Are you sure you want to make this user an admin?"
@@ -46,6 +46,9 @@ const AllUsers = () => {
     //   refetch(); // Refresh the user list after the update
     // }
   };
+  if(loading) {
+    <LoadingSpinner/>
+  }
   return (
     <div>
       <Helmet>
@@ -72,14 +75,14 @@ const AllUsers = () => {
             {usersData.map((user) => (
               <tr key={user._id} className="text-center">
                 <td className="border px-4 py-2">
-                  <img
+                 {user?.photo && <img
                     src={user?.photo}
-                    alt={`${user.name}'s profile`}
+                    alt={`${user?.name}'s profile`}
                     className="w-12 h-12 rounded-full mx-auto"
-                  />
+                  />}
                 </td>
-                <td className="border px-4 py-2">{user.name}</td>
-                <td className="border px-4 py-2">{user.email}</td>
+                <td className="border px-4 py-2">{user?.name}</td>
+                <td className="border px-4 py-2">{user?.email}</td>
                 <td className="border px-4 py-2">
                   {user.isAdmin ? (
                     <span className="text-green-500 font-semibold">Admin</span>
@@ -87,7 +90,7 @@ const AllUsers = () => {
                     <button
                       className="bg-blue-500 text-white px-3 py-1 rounded hover:bg-blue-700"
                       onClick={() =>
-                        makeAdmin(user._id, user.name, user.email, user.photo)
+                        makeAdmin(user?._id, user?.name, user?.email, user?.photo)
                       }
                     >
                       Make Admin

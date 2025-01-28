@@ -1,6 +1,6 @@
 export const updateArticleStatus = async (id, status, reason = null) => {
     try {
-      const response = await fetch(`http://localhost:5000/articles/${id}`, {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/articles/${id}`, {
         method: "PATCH", // Update operation
         headers: {
           "Content-Type": "application/json",
@@ -14,3 +14,6 @@ export const updateArticleStatus = async (id, status, reason = null) => {
       throw error; // Re-throw the error for handling
     }
   };
+
+  // import.meta.env.VITE_API_URL,
+  //   withCredentials: true,
