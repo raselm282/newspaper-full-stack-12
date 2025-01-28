@@ -5,6 +5,7 @@ import Statistics from "../Components/Home/Statistics";
 import PlansSection from "../Components/Home/PlansSection";
 import { Helmet } from "react-helmet-async";
 import HomePageModal from "../Components/Home/HomePageModal";
+import SwiperSlider from "../Components/Home/SwiperSlider";
 // import Navbar from "../Components/Navbar";
 // import Footer from "../Components/Footer";
 // import { Toaster } from "react-hot-toast";
@@ -16,6 +17,7 @@ const Home = () => {
       <Helmet>
         <title>Newspaper || Home</title>
       </Helmet>{" "}
+      <SwiperSlider></SwiperSlider>
       <TrendingArticles></TrendingArticles>
       <AllPublisher></AllPublisher>
       <Statistics />
