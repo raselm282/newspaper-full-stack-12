@@ -16,9 +16,9 @@ const Statistics = () => {
         }
     });
     const [articles] = useArticles();
-  console.log(articles);
+  // console.log(articles);
   const premiumArticles = articles.filter((item) => item.isPremium);
-  console.log(premiumArticles);
+  // console.log(premiumArticles);
   const premium = premiumArticles.length
   
   if (loading) {

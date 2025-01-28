@@ -4,7 +4,7 @@ import LoadingSpinner from "../LoadingSpinner";
 
 const AllPublisher = () => {
     const [publishers, loading] = usePublishers()
-    console.log(publishers);
+    // console.log(publishers);
   
   if (loading) return <LoadingSpinner></LoadingSpinner>
 

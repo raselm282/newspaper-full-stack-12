@@ -21,7 +21,7 @@ const SubscriptionPage = () => {
     // Navigate to payment page with subscription period
     navigate("/payment", { state: { subscriptionPeriod } });
   };
-  console.log(subscriptionPeriod);
+  // console.log(subscriptionPeriod);
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600 p-4">
       <Helmet>

@@ -5,6 +5,7 @@ import useAuth from '../Hooks/useAuth';
 import useAdmin from '../Hooks/useAdmin';
 import { FaSignOutAlt } from "react-icons/fa";
 import news_logo from '../assets/Newspaper_logo.png'
+import toast from 'react-hot-toast';
 
 
 const Navbar = () => {
@@ -12,14 +13,14 @@ const Navbar = () => {
   const [isAdmin] = useAdmin()
     // const { logOut } = useContext(AuthContext)
     const {user,signOutUser} = useAuth()
-    console.log(user?.email, user?.displayName,user?.photoURL);
+    // console.log(user?.email, user?.displayName,user?.photoURL);
   const handleSignOut = ()=>{
     signOutUser()
     .then(()=>{
       navigate('/login');
     })
     .catch(error =>{
-        console.log(error.message);
+        toast.error(error.message);
     }
     )
 }

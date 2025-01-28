@@ -8,6 +8,7 @@ import GoogleLogin from "../Components/GoogleLogin";
 import useAuth from "../Hooks/useAuth";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import logo from '../assets/register_marathon.avif'
+import toast from "react-hot-toast";
 
 // https://i.ibb.co.com/cyzfmdQ/cat-1.jpg
 //ddddddddddd@gg.com
@@ -26,7 +27,7 @@ const SignUp = () => {
   const onSubmit = (data) => {
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
-      console.log(loggedUser);
+      // console.log(loggedUser);
       updateUserProfile(data.name, data.photoURL)
         .then(() => {
           // create user entry in the database
@@ -37,7 +38,7 @@ const SignUp = () => {
           };
           axiosPublic.post("/users", userInfo).then((res) => {
             if (res.data.insertedId) {
-              console.log("user added to the database");
+              // console.log("user added to the database");
               reset();
               Swal.fire({
                 position: "top-end",
@@ -50,7 +51,7 @@ const SignUp = () => {
             }
           });
         })
-        .catch((error) => console.log(error));
+        .catch((error) => {toast.error(error)});
     });
   };
   return (

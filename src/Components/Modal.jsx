@@ -2,7 +2,7 @@ import React from "react";
 
 const Modal = ({ isOpen, onClose, onSubmit, children }) => {
   if (!isOpen) return null; // If modal is not open, return null
-  console.log(children);
+  // console.log(children);
   return (
     <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center z-50">
       <div className="bg-white p-6 rounded-lg shadow-lg w-96">

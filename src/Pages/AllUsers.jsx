@@ -8,7 +8,7 @@ import LoadingSpinner from "../Components/LoadingSpinner";
 const AllUsers = () => {
   const [usersData, loading, refetch] = useUsers();
   const axiosSecure = useAxiosSecure();
-  console.log(usersData);
+  // console.log(usersData);
 
   // Handle making a user an admin
 
@@ -23,7 +23,7 @@ const AllUsers = () => {
         photo,
         isAdmin: true,
       };
-      console.log(formData);
+      // console.log(formData);
       try {
         // 1. make a post request
         await axiosSecure.put(`/users/${id}`, formData);

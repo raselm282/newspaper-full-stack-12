@@ -5,7 +5,7 @@ import useAxiosSecure from "../Hooks/useAxiosSecure";
 
 const ArticleCard = ({ article }) => {
   const axiosSecure = useAxiosSecure()
-    console.log(article);
+    // console.log(article);
     // handle status change
   // const handleStatus = async () => {
   //   // if (status === newStatus) return

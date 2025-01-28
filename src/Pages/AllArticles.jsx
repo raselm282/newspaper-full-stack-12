@@ -10,11 +10,11 @@ import { Helmet } from "react-helmet-async";
 const AllArticles = () => {
   const [articles, loading] = useArticles();
   const axiosSecure = useAxiosSecure();
-  console.log(articles);
+  // console.log(articles);
   const approvedArticles = articles.filter(
     (item) => item.status === "approved"
   );
-  console.log(approvedArticles);
+  // console.log(approvedArticles);
 
   if (loading) return <LoadingSpinner />;
   return (

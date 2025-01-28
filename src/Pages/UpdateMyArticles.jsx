@@ -10,13 +10,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
-console.log(image_hosting_key);
+// console.log(image_hosting_key);
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 const UpdateMyArticles = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [article] = useArticlesById(id);
-  console.log(article);
+  // console.log(article);
   const { _id, title, image, tags, description } = article;
 
   const { user } = useAuth();
@@ -41,7 +41,7 @@ const UpdateMyArticles = () => {
     { value: "Business", label: "Business" },
   ];
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
 
     const formData = new FormData();
     formData.append("image", data.image[0]);
@@ -68,7 +68,7 @@ const UpdateMyArticles = () => {
             withCredentials: true,
           }
         );
-        console.log(articlesRes.data);
+        // console.log(articlesRes.data);
         if (articlesRes.data.modifiedCount) {
           reset();
           navigate("/myArticles");

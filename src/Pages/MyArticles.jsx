@@ -14,7 +14,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 const MyArticles = () => {
   const navigate = useNavigate()
   const [articles, loading, refetch] = useArticlesByEmail();
-  console.log(articles);
+  // console.log(articles);
 // modern delete
   const handleDelete = async id => {
     try {

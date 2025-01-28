@@ -6,7 +6,7 @@ import useAxiosPublic from "../Hooks/useAxiosPublic";
 import { Helmet } from "react-helmet-async";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
-console.log(image_hosting_key);
+// console.log(image_hosting_key);
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 
 const AddPublisher = () => {
@@ -21,7 +21,7 @@ const AddPublisher = () => {
   } = useForm();
 
   const onSubmit = async (data) => {
-    console.log(data);
+    // console.log(data);
 
     const formData = new FormData();
     formData.append("image", data.image[0]);

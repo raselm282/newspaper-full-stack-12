@@ -6,9 +6,9 @@ import { Helmet } from "react-helmet-async";
 
 const PremiumArticles = () => {
   const [articles] = useArticles();
-  console.log(articles);
+  // console.log(articles);
   const premiumArticles = articles.filter((item) => item.isPremium);
-  console.log(premiumArticles);
+  // console.log(premiumArticles);
 
   return (
     <div>

@@ -24,7 +24,7 @@ const ArticleDetailsPage = () => {
       return data;
     },
   });
-  console.log(article);
+  // console.log(article);
   const { image, title, description, status, tags, _id } = article;
 
   // ভিউ কাউন্ট আপডেট করার জন্য একটি ফাংশন
@@ -32,7 +32,7 @@ const ArticleDetailsPage = () => {
     // console.log(id);
     axiosPublic.patch(`/viewCount/${id}`).then((res) => {
       refetch();
-      console.log(res);
+      // console.log(res);
     });
   };
 

@@ -12,7 +12,7 @@ import { Helmet } from "react-helmet-async";
 import toast from "react-hot-toast";
 
 const image_hosting_key = import.meta.env.VITE_IMAGE_HOSTING_KEY;
-console.log(image_hosting_key);
+// console.log(image_hosting_key);
 const image_hosting_api = `https://api.imgbb.com/1/upload?key=${image_hosting_key}`;
 const AddArticles = () => {
   const navigate = useNavigate();
@@ -43,8 +43,8 @@ const AddArticles = () => {
     { value: "Business", label: "Business" },
   ];
   const onSubmit = async (data) => {
-    console.log(data);
-    console.log(data.publisher);
+    // console.log(data);
+    // console.log(data.publisher);
 
     const formData = new FormData();
     formData.append("image", data.image[0]);
@@ -55,7 +55,7 @@ const AddArticles = () => {
           "content-type": "multipart/form-data",
         },
       });
-console.log(res.data);
+// console.log(res.data);
       if (res.data.success) {
         const articleData = {
           title: data.title,
@@ -76,7 +76,7 @@ console.log(res.data);
         };
 
         const articlesRes = await axiosPublic.post("/articlesPost", articleData);
-console.log(articlesRes.data);
+// console.log(articlesRes.data);
         if (articlesRes.data.insertedId) {
           reset();
           toast.success(`${data.title} Add Successfully`)

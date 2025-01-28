@@ -31,7 +31,7 @@ const AllArticlesPage = () => {
     },
   });
   // setArticles(data)
-  console.log("articles", articles);
+  // console.log("articles", articles);
   //   const { _id, title, image, tags, description, status,buyer } = articles;
 
   const handlePremiumChange = async (id, newPremium) => {
@@ -45,7 +45,7 @@ const AllArticlesPage = () => {
       refetch();
       toast.success("Premium Updated");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       toast.error(err.response.data);
     }
   };
@@ -64,7 +64,7 @@ const AllArticlesPage = () => {
       refetch();
       toast.success("Status Updated");
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       toast.error(err.response.data);
     } finally {
       setIsModalOpen(false);

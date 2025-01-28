@@ -18,7 +18,7 @@ const Login = () => {
   const navigate = useNavigate();
 
   const from = location.state?.from?.pathname || "/";
-  console.log("state in the location login page", location.state);
+  // console.log("state in the location login page", location.state);
   const {
     register,
     handleSubmit,
@@ -27,10 +27,10 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    // console.log(data);
     signIn(data?.email, data?.password).then((result) => {
       const user = result.user;
-      console.log(user);
+      // console.log(user);
       Swal.fire({
         title: "User Login Successful.",
         showClass: {
