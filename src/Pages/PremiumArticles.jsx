@@ -29,12 +29,12 @@ const PremiumArticles = () => {
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {premiumArticles?.map((article) => (
             <div key={article._id} className="border rounded-lg shadow-md p-4">
+              <h2 className="text-xl text-slate-500 font-semibold pb-5 hover:text-[21px] hover:text-black transition underline">{article.title}</h2>
               <img
                 src={article.image}
                 alt={article.title}
                 className="w-full h-60 rounded-md mb-4"
               />
-              <h2 className="text-xl font-semibold">{article.title}</h2>
               <p className="text-sm text-gray-600">
                 {/* Publisher: {article.publisher} */}
               </p>
@@ -42,7 +42,7 @@ const PremiumArticles = () => {
                 {article.description.slice(0, 100)}...
               </p>
               <Link to={`/articles/${article._id}`}>
-                <button className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
+                <button className="btn btn-warning text-white py-2 px-4 rounded hover:text-black hover:text-xl transition w-full">
                   View Details
                 </button>
               </Link>

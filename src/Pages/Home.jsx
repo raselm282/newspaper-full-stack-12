@@ -6,6 +6,8 @@ import PlansSection from "../Components/Home/PlansSection";
 import { Helmet } from "react-helmet-async";
 import HomePageModal from "../Components/Home/HomePageModal";
 import SwiperSlider from "../Components/Home/SwiperSlider";
+import HomePageSections from "../Components/Home/HomePageSections";
+import HomePieChart from "../Components/Home/HomePieChart";
 // import Navbar from "../Components/Navbar";
 // import Footer from "../Components/Footer";
 // import { Toaster } from "react-hot-toast";
@@ -22,7 +24,9 @@ const Home = () => {
       <AllPublisher></AllPublisher>
       <Statistics />
       <PlansSection />
-      <HomePageModal/>
+      <HomePageSections/>
+      <HomePieChart/>
+      {/* <HomePageModal/> */}
     </div>
   );
 };

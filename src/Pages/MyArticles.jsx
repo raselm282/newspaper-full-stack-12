@@ -12,13 +12,15 @@ import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
 
 const MyArticles = () => {
+  const axiosSecure = useAxiosSecure()
   const navigate = useNavigate()
   const [articles, loading, refetch] = useArticlesByEmail();
   // console.log(articles);
 // modern delete
   const handleDelete = async id => {
+    console.log(id);
     try {
-      const { data } = await axios.delete(
+      const { data } = await axiosSecure.delete(
         `${import.meta.env.VITE_API_URL}/articlesDelete/${id}`
       )
       toast.success('Data Deleted Successfully!!!')
@@ -27,7 +29,8 @@ const MyArticles = () => {
       toast.error(err.message)
     }
   }
-  const modernDelete = id => {
+  const modernDelete = (id) => {
+    console.log(id);
     toast(t => (
       <div className='flex gap-3 items-center'>
         <div>
@@ -216,7 +219,7 @@ const MyArticles = () => {
                       <td className="px-4 py-4 text-sm whitespace-nowrap">
                         <div className="flex items-center gap-x-6">
                           <button
-                            onClick={() => modernDelete(article._id)}
+                            onClick={() => modernDelete(article?._id)}
                             // onClick={() => handleDelete(article._id)}
                             className="text-gray-500 transition-colors duration-200   hover:text-red-500 focus:outline-none"
                           >
@@ -225,7 +228,7 @@ const MyArticles = () => {
                           </button>
 
                           <Link
-                            onClick={() => modernEdit(article._id)}
+                            onClick={() => modernEdit(article?._id)}
                             // to={`/update/${article._id}`}
                             className="text-gray-500 transition-colors duration-200   hover:text-yellow-500 focus:outline-none"
                           >

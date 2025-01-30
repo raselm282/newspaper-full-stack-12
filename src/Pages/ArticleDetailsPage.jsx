@@ -27,17 +27,17 @@ const ArticleDetailsPage = () => {
   // console.log(article);
   const { image, title, description, status, tags, _id } = article;
 
-  // ভিউ কাউন্ট আপডেট করার জন্য একটি ফাংশন
+  // function for view count
   const updateViewCount = () => {
     // console.log(id);
-    axiosPublic.patch(`/viewCount/${id}`).then((res) => {
+    axiosSecure.patch(`/viewCount/${id}`).then((res) => {
       refetch();
       // console.log(res);
     });
   };
 
   useEffect(() => {
-    updateViewCount(); // ভিউ কাউন্ট ১ বাড়ানো
+    updateViewCount(); 
   }, [id]);
 
   if (!article) {
