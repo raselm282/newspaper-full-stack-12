@@ -82,19 +82,7 @@ const ArticleDetailsPage = () => {
         <hr className="my-6" />
         <div className="flex justify-between">
           {/* <p className="font-bold text-3xl text-gray-500">Price: {title}$</p> */}
-          <div>
-            <button className="btn">
-              pay
-              {/* // disabled={ */}
-              {/* //   !user ||
-                //   user?.email === seller?.email ||
-                //   role != 'customer' ||
-                //   quantity === 0
-                {/* // } */}
-              {/* // onClick={() => setIsOpen(true)}
-                // label={quantity > 0 ? 'Purchase' : 'Out Of Stock'} */}
-            </button>
-          </div>
+          
         </div>
         <hr className="my-6" />
 

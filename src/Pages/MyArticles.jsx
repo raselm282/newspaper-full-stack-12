@@ -18,7 +18,7 @@ const MyArticles = () => {
   // console.log(articles);
 // modern delete
   const handleDelete = async id => {
-    console.log(id);
+    // console.log(id);
     try {
       const { data } = await axiosSecure.delete(
         `${import.meta.env.VITE_API_URL}/articlesDelete/${id}`
@@ -30,7 +30,7 @@ const MyArticles = () => {
     }
   }
   const modernDelete = (id) => {
-    console.log(id);
+    // console.log(id);
     toast(t => (
       <div className='flex gap-3 items-center'>
         <div>
@@ -187,7 +187,7 @@ const MyArticles = () => {
 
                       <td className="px-4 py-4 text-sm whitespace-nowrap">
                         <div className="flex items-center gap-x-2">
-                          <p
+                          <h2
                             className={`px-3 py-1  ${
                               article.status === "pending" &&
                               "text-blue-500 bg-blue-100/60"
@@ -200,8 +200,9 @@ const MyArticles = () => {
                               "text-red-500 bg-red-100/60"
                             } text-xs  rounded-full`}
                           >
-                            {article.status}
-                          </p>
+                            <p className="font-bold">{article.status}</p>
+                            {article.status === "declined" && <p>Reason:{article.reason}</p>}
+                          </h2>
                         </div>
                       </td>
                       <td className="px-4 py-4 text-sm whitespace-nowrap">

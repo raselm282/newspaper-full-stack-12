@@ -9,9 +9,11 @@ import useAxiosSecure from "../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
 import { format } from "date-fns";
 import { Helmet } from "react-helmet-async";
-// import Modal from "../components/Modal";
+import LoadingSpinner from "../Components/LoadingSpinner";
+import useAuth from "../Hooks/useAuth";
 
 const AllArticlesPage = () => {
+  const { loading } = useAuth();
   const axiosSecure = useAxiosSecure();
   const axiosPublic = useAxiosPublic();
   //   const [articles, setArticles] = useState([]);
@@ -19,20 +21,41 @@ const AllArticlesPage = () => {
   const [declineReason, setDeclineReason] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const {
-    data: articles = [],
-    isLoading,
-    refetch,
-  } = useQuery({
-    queryKey: ["articles"],
-    queryFn: async () => {
-      const { data } = await axiosPublic(`/articles`);
-      return data;
-    },
-  });
-  // setArticles(data)
-  // console.log("articles", articles);
-  //   const { _id, title, image, tags, description, status,buyer } = articles;
+
+  const [itemsPerPage, setItemsPerPage] = useState(9);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [count, setCount] = useState(0);
+
+  const [articles, setArticles] = useState([]);
+  useEffect(() => {
+    const getData = async () => {
+      const { data } = await axiosSecure(
+        `/allArticlesData?page=${currentPage}&size=${itemsPerPage}`
+      );
+      setArticles(data);
+    };
+    getData();
+  }, [currentPage, itemsPerPage]);
+  useEffect(() => {
+    const getCount = async () => {
+      const { data } = await axiosSecure(`/jobs-countAllArticlePage`);
+
+      setCount(data.count);
+    };
+    getCount();
+  }, []);
+
+  // console.log(count);
+  const numberOfPages = Math.ceil(count / itemsPerPage);
+  const pages = [...Array(numberOfPages).keys()].map((element) => element + 1);
+
+  //  handle pagination button
+  const handlePaginationButton = (value) => {
+    // console.log(value);
+    setCurrentPage(value);
+  };
+
+  // console.log(articles);
 
   const handlePremiumChange = async (id, newPremium) => {
     // if (status === newStatus) return
@@ -49,7 +72,6 @@ const AllArticlesPage = () => {
       toast.error(err.response.data);
     }
   };
-  // আর্টিকেলের স্ট্যাটাস আপডেট করার ফাংশন
   // handle status change
 
   const handleStatusChange = async (id, newStatus, reasons = null) => {
@@ -70,7 +92,7 @@ const AllArticlesPage = () => {
       setIsModalOpen(false);
     }
   };
-
+  if (loading) return <LoadingSpinner />;
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
       <Helmet>
@@ -163,6 +185,71 @@ const AllArticlesPage = () => {
           />
         </Modal>
       )}
+      {/* Pagination Section */}
+      <div className="flex justify-center mt-12">
+        {/* Previous Button */}
+        <button
+          disabled={currentPage === 1}
+          onClick={() => handlePaginationButton(currentPage - 1)}
+          className="px-4 py-2 mx-1 text-gray-700 disabled:text-gray-500 capitalize bg-gray-200 rounded-md disabled:cursor-not-allowed disabled:hover:bg-gray-200 disabled:hover:text-gray-500 hover:bg-blue-500  hover:text-white"
+        >
+          <div className="flex items-center -mx-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-6 h-6 mx-1 rtl:-scale-x-100"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M7 16l-4-4m0 0l4-4m-4 4h18"
+              />
+            </svg>
+
+            <span className="mx-1">previous</span>
+          </div>
+        </button>
+        {/* Numbers */}
+        {pages.map((btnNum) => (
+          <button
+            onClick={() => handlePaginationButton(btnNum)}
+            key={btnNum}
+            className={`hidden ${
+              currentPage === btnNum ? "bg-blue-500 text-white" : ""
+            } px-4 py-2 mx-1 transition-colors duration-300 transform  rounded-md sm:inline hover:bg-blue-500  hover:text-white`}
+          >
+            {btnNum}
+          </button>
+        ))}
+        {/* Next Button */}
+        <button
+          disabled={currentPage === numberOfPages}
+          onClick={() => handlePaginationButton(currentPage + 1)}
+          className="px-4 py-2 mx-1 text-gray-700 transition-colors duration-300 transform bg-gray-200 rounded-md hover:bg-blue-500 disabled:hover:bg-gray-200 disabled:hover:text-gray-500 hover:text-white disabled:cursor-not-allowed disabled:text-gray-500"
+        >
+          <div className="flex items-center -mx-1">
+            <span className="mx-1">Next</span>
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-6 h-6 mx-1 rtl:-scale-x-100"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </div>
+        </button>
+      </div>
     </div>
   );
 };

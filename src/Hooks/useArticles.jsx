@@ -13,11 +13,11 @@ const useArticles = () => {
     //             setLoading(false);
     //         });
     // }, [])
-
+// console.log(search)
     const {data: articles = [], isPending: loading, refetch} = useQuery({
         queryKey: ['articles'], 
         queryFn: async() =>{
-            const res = await axiosPublic.get('/articles');
+            const res = await axiosPublic.get(`/articles`);
             return res.data;
         }
     })

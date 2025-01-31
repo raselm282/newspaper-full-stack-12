@@ -32,13 +32,15 @@ const ArticleCard = ({ article }) => {
         />
       </figure>
       <div className="card-body">
-        <h2 className="card-title">Title : {article?.title}</h2>
-        <p>Description : {article?.description}</p>
+        <h2 className={`card-title ${article.isPremium && "text-green-500 bg-green-100/60 underline"}`}>Title : {article?.title}</h2>
+        <p>Description : {article?.description.slice(0, 100)}...</p>
         <p>Status : {article?.status}</p>
-        {article?.reason && <p>Reason : {article?.reason}</p>}
+        {article?.isPremium && <p className={`text-green-500 underline`}>Premium</p>}
+        <p>Publishers : {article?.publishers}</p>
+        <p>Tags : {article?.tags.map((item,i)=> <button key={i} item={item}>{item}</button>)}</p>
         <p>Views : {article?.views}</p>
-        <div className="card-actions justify-end">
-            <Link to={`/articles/${article._id}`}><button className="btn btn-primary">Details</button></Link>
+        <div className=" w-full">
+            <Link to={`/articles/${article._id}`}><button className={`btn w-full btn-primary ${article.isPremium && "w-full btn btn-sm btn-warning"}`}>Details</button></Link>
         
         </div>
       </div>
