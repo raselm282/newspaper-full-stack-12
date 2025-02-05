@@ -12,9 +12,8 @@ Newspaper FullStack Website: assignment12_category_013
 
 Live Link: https://assignments12-clients.web.app
 
-Client-side github link: https://github.com/Programming-Hero-Web-Course4/b10a12-client-side-raselm282
-
-Server-side github link: https://github.com/Programming-Hero-Web-Course4/b10a12-server-side-raselm282
+Client-side github link: https://github.com/raselm282/newspaper-full-stack-
+12.git
 
 
 ## 📸 Screenshot  
