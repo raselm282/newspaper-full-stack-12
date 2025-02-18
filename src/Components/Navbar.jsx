@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 // import AuthContext from '../AuthContext/AuthContext';
 import useAuth from '../Hooks/useAuth';
@@ -6,7 +6,8 @@ import useAdmin from '../Hooks/useAdmin';
 import { FaSignOutAlt } from "react-icons/fa";
 import news_logo from '../assets/Newspaper_logo.png'
 import toast from 'react-hot-toast';
-
+import { MdDarkMode} from "react-icons/md";
+import { MdLightMode } from "react-icons/md";
 
 const Navbar = () => {
   const navigate = useNavigate()
@@ -35,8 +36,31 @@ const Navbar = () => {
     <li><NavLink to={'/premiumArticles'}>Premium Articles</NavLink></li>
     
     </>
+
+
+const [isDarkMode, setIsDarkMode] = useState(() => {
+  return localStorage.getItem("theme") === "dark";
+});
+
+const toggleTheme = () => {
+  setIsDarkMode((prevMode) => {
+    const newMode = !prevMode;
+    document.documentElement.classList.toggle("dark", newMode);
+    localStorage.setItem("theme", newMode ? "dark" : "light");
+    return newMode;
+  });
+};
+
+useEffect(() => {
+  if (isDarkMode) {
+    document.documentElement.classList.add("dark");
+  } else {
+    document.documentElement.classList.remove("dark");
+  }
+}, [isDarkMode]);
+
   return (
-    <div className="navbar bg-base-100">
+    <div className="navbar bg-base-100 dark:bg-black/50 dark:text-white/60">
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -81,6 +105,12 @@ const Navbar = () => {
         {/* <Link to={'/login'} className="btn">Login</Link>
         <Link to={'/register'} className="btn">Register</Link> */}
       </div>
+      <button
+          onClick={toggleTheme}
+          className="p-3 text-2xl  rounded bg-gray-800 text-white dark:bg-gray-200 dark:text-black"
+        >
+          {isDarkMode ? <MdLightMode/> : <MdDarkMode/>}
+      </button>
     </div>
   );
 };
