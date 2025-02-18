@@ -268,7 +268,7 @@ const AddArticles = () => {
         </div>
 
         <div className="py-4 text-center">
-          <button className="btn btn-warning" type="submit">
+          <button className="btn bg-yellow-500 dark:bg-yellow-500/70 hover:bg-yellow-600" type="submit">
             Submit
           </button>
         </div>

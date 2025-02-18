@@ -34,13 +34,13 @@ const ArticleCard = ({ article }) => {
       <div className="card-body">
         <h2 className={`card-title ${article.isPremium && "text-green-500 bg-green-100/60 dark:bg-gray-900 dark:text-white/60 underline"}`}>Title : {article?.title}</h2>
         <p>Description : {article?.description.slice(0, 100)}...</p>
-        <p>Status : {article?.status}</p>
+        {/* <p>Status : {article?.status}</p>
         {article?.isPremium && <p className={`text-green-500 underline`}>Premium</p>}
         <p>Publishers : {article?.publishers}</p>
         <p>Tags : {article?.tags.map((item,i)=> <button key={i} item={item}>{item}</button>)}</p>
-        <p>Views : {article?.views}</p>
+        <p>Views : {article?.views}</p> */}
         <div className=" w-full">
-            <Link to={`/articles/${article._id}`}><button className={`btn w-full btn-primary ${article.isPremium && "w-full btn btn-sm btn-warning"}`}>Details</button></Link>
+            <Link to={`/articles/${article._id}`}><button className={`btn w-full btn-primary ${article.isPremium && "w-full btn btn-sm bg-yellow-500 dark:bg-yellow-500/70 hover:bg-yellow-600"}`}>Details</button></Link>
         
         </div>
       </div>

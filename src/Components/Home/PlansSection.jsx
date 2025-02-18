@@ -50,7 +50,7 @@ const PlansSection = () => {
             </ul>
             <button
               onClick={handleSubscribeClick}
-              className="px-4 py-2 bg-blue-500 text-white rounded-xl hover:bg-blue-600"
+              className="px-4 py-2 btn btn-primary text-white rounded-xl hover:bg-blue-600"
             >
               Subscribe
             </button>

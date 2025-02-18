@@ -60,7 +60,7 @@ useEffect(() => {
 }, [isDarkMode]);
 
   return (
-    <div className='sticky left-0 top-0 py-2  backdrop-blur-md w-full z-50 dark:bg-black/50 dark:text-white/60 bg-gradient-to-r from-yellow-400/50 to-yellow-600/50 mx-auto'>
+    <div className='sticky left-0 top-0 py-2  backdrop-blur-md w-full z-50 dark:bg-black/50 dark:text-white/60 bg-gradient-to-r from-yellow-400 to-yellow-600 dark:from-yellow-400/50 dark:to-yellow-600/50 mx-auto'>
       <div className="navbar max-w-[90%] mx-auto p-0">
         <div className="navbar-start">
           <div className="dropdown">
@@ -88,7 +88,7 @@ useEffect(() => {
             </ul>
           </div>
           {/* <p>{user?.email}</p> */}
-          <Link to='/' className='flex gap-2 items-center bg-orange-200 p-2 rounded-lg'>
+          <Link to='/' className='flex gap-2 items-center bg-orange-200 dark:bg-orange-200/20 dark:text-white p-2 rounded-lg'>
             <img className='w-auto h-7 rounded-md' src={news_logo} alt='' />
             <span className='font-bold'>Newspaper</span>
           </Link>
