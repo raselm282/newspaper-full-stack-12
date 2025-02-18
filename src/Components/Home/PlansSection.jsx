@@ -38,7 +38,7 @@ const PlansSection = () => {
         {plans.map((plan, index) => (
           <div
             key={index}
-            className="p-6 bg-gray-100 rounded-2xl shadow-md w-64 text-center"
+            className="p-6 bg-gray-100 shadow-md w-64 text-center dark:bg-gray-800 dark:text-white/60"
           >
             <h3 className="text-xl font-semibold mb-4">{plan.type} Plan</h3>
             <ul className="mb-6">

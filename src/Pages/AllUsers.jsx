@@ -52,13 +52,6 @@ const AllUsers = () => {
 
 // console.log(jobs);
 
-
-
-
-
-
-
-
   // Handle making a user an admin
   const makeAdmin = async (id, name, email, photo) => {
     const confirmAction = window.confirm(
@@ -91,7 +84,7 @@ const AllUsers = () => {
     <LoadingSpinner/>
   }
   return (
-    <div>
+    <div className="dark:text-white/60 dark:bg-gray-900">
       <Helmet>
         <title>Dashboard || All Users</title>
       </Helmet>{" "}
@@ -101,11 +94,11 @@ const AllUsers = () => {
           {jobs.length}
         </span>
       </div>
-      <section className="p-8 bg-gray-100 min-h-screen">
+      <section className="p-8 bg-gray-100 min-h-screen dark:text-white/60 dark:bg-gray-900">
         <h1 className="text-2xl font-semibold mb-6">All Users</h1>
         <table className="table-auto w-full border-collapse border border-gray-300">
           <thead>
-            <tr className="bg-gray-200">
+            <tr className="bg-gray-200 dark:text-white/60 dark:bg-gray-900">
               <th className="border px-4 py-2">Profile Picture</th>
               <th className="border px-4 py-2">Name</th>
               <th className="border px-4 py-2">Email</th>

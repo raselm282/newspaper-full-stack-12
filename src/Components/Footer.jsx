@@ -7,9 +7,9 @@ const Footer = () => {
   const { signOutUser } = useAuth();
 
   return (
-    <footer className="footer bg-base-200 text-base-content p-10">
+    <footer className="footer bg-base-200 text-base-content p-10 dark:bg-gray-900 dark:text-white/60">
       <aside>
-      <img className="w-20" src={logo} alt="" />
+      <img className="w-20 dark:bg-gray-900 dark:text-white/60" src={logo} alt="" />
         <p className="font-bold">
           Newspaper Full Stack Website
           <br />

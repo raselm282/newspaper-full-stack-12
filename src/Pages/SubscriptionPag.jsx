@@ -23,12 +23,12 @@ const SubscriptionPage = () => {
   };
   // console.log(subscriptionPeriod);
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600 p-4">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600 p-4 dark:text-white/60 dark:from-gray-900 dark:to-gray-700">
       <Helmet>
         <title>Subscriptions</title>
       </Helmet>
       {/* Banner */}
-      <div className="banner bg-gradient-to-r from-blue-500 to-purple-500 text-white p-8 rounded-lg mb-6 shadow-lg">
+      <div className="banner bg-gradient-to-r from-blue-500 to-purple-500 text-white p-8 rounded-lg mb-6 shadow-lg dark:text-white/60 dark:from-gray-900 dark:to-gray-700">
         <h1 className="text-4xl font-bold">Upgrade to Premium</h1>
         <p className="text-lg mt-2">
           Unlock exclusive features with our premium subscription!
@@ -36,14 +36,14 @@ const SubscriptionPage = () => {
       </div>
 
       {/* Subscription Form */}
-      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg">
+      <div className="bg-white p-8 rounded-lg shadow-lg w-full max-w-lg dark:text-white/60 dark:bg-gray-900">
         <h2 className="text-2xl font-bold mb-4">Choose Subscription Plan</h2>
 
         {/* Dropdown */}
         <div className="mb-4">
           <label
             htmlFor="subscription-period"
-            className="block mb-2 text-lg font-medium"
+            className="block mb-2 text-lg font-medium dark:text-white/60"
           >
             Select Period:
           </label>
@@ -51,7 +51,7 @@ const SubscriptionPage = () => {
             id="subscription-period"
             value={subscriptionPeriod}
             onChange={(e) => setSubscriptionPeriod(e.target.value)}
-            className="p-2 rounded border w-full"
+            className="p-2 rounded border w-full dark:text-white/60 dark:bg-gray-900"
           >
             <option value="" disabled>
               -- Select Subscription Period --

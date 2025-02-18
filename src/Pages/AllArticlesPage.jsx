@@ -94,7 +94,7 @@ const AllArticlesPage = () => {
   };
   if (loading) return <LoadingSpinner />;
   return (
-    <div className="p-6 bg-gray-100 min-h-screen">
+    <div className="p-6 bg-gray-100 min-h-screen dark:text-white/60 dark:bg-gray-900">
       <Helmet>
         <title>Dashboard || All Articles</title>
       </Helmet>{" "}
@@ -106,7 +106,7 @@ const AllArticlesPage = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {articles.map((article) => (
-          <div key={article._id} className="bg-white p-4 rounded-lg shadow-lg">
+          <div key={article._id} className="bg-white p-4 rounded-lg shadow-lg dark:text-white/60 dark:bg-gray-900">
             <h2 className="font-bold text-lg">{article.title}</h2>
             <div className="text-sm text-gray-500">
               <p>Author: {article?.buyer?.name}</p>
@@ -124,7 +124,7 @@ const AllArticlesPage = () => {
             <div className="grid grid-cols-2 gap-2 mt-4">
               <button
                 onClick={() => handleStatusChange(article._id, "approved")}
-                className="btn btn-xs bg-green-500 text-white rounded-lg hover:bg-green-600"
+                className="btn btn-xs bg-green-500 dark:bg-green-500/50 text-white rounded-lg hover:bg-green-600"
               >
                 {article?.status === "approved" ? (
                   <>
@@ -141,13 +141,13 @@ const AllArticlesPage = () => {
                   setIsModalOpen(true);
                   setDeclineReason("");
                 }}
-                className="btn btn-xs bg-red-500 text-white rounded-lg hover:bg-red-600"
+                className="btn btn-xs bg-red-500 dark:bg-red-500/50 text-white rounded-lg hover:bg-red-600"
               >
                 Decline
               </button>
               <button
                 onClick={() => handlePremiumChange(article._id, true)}
-                className="btn btn-xs bg-yellow-500 text-white rounded-lg hover:bg-yellow-600"
+                className="btn btn-xs bg-yellow-500 dark:bg-yellow-500/50 text-white rounded-lg hover:bg-yellow-600"
               >
                 {article?.isPremium ? (
                   <>
@@ -160,7 +160,7 @@ const AllArticlesPage = () => {
               </button>
               <button
                 onClick={() => handleStatusChange(article._id, "deleted")}
-                className="btn btn-xs bg-gray-500 text-white rounded-lg hover:bg-gray-600"
+                className="btn btn-xs bg-gray-500  dark:bg-gray-500/50 text-white rounded-lg hover:bg-gray-600"
               >
                 Delete
               </button>
@@ -175,13 +175,15 @@ const AllArticlesPage = () => {
           onSubmit={() =>
             handleStatusChange(selectedArticle._id, "declined", declineReason)
           }
+          className="dark:bg-gray-900 dark:text-white"
         >
           <textarea
             required
             placeholder="Enter reason for decline..."
             value={declineReason}
             onChange={(e) => setDeclineReason(e.target.value)}
-            className="w-full p-2 border rounded-lg"
+            className="w-full p-2 border rounded-lg bg-white text-black 
+               dark:bg-gray-700 dark:text-white dark:border-gray-600"
           />
         </Modal>
       )}

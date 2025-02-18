@@ -32,20 +32,20 @@ const Statistics = () => {
         Statistics
         </p>
       </div>
-      <div style={{ display: "flex", justifyContent: "space-around", marginTop: "20px" }}>
+      <div className="dark:bg-gray-900 dark:text-white/60" style={{ display: "flex", justifyContent: "space-around", marginTop: "20px" }}>
         {/* মোট ইউজার */}
-        <div>
-          <h3 className="font-bold bg-orange-200 p-3 rounded-md">Total Users</h3>
-          <CountUp className="text-5xl" end={countUp.users} duration={3} />
+        <div className="dark:bg-gray-900 dark:text-white/60">
+          <h3 className="font-bold bg-orange-200 p-3 rounded-md dark:bg-gray-800 dark:text-white/60">Total Users</h3>
+          <CountUp className="text-5xl " end={countUp.users} duration={3} />
         </div>
         {/* নরমাল ইউজার */}
         <div>
-          <h3 className="font-bold bg-orange-200 p-3 rounded-md">Normal Users</h3>
+          <h3 className="font-bold bg-orange-200 p-3 rounded-md dark:bg-gray-800 dark:text-white/60">Normal Users</h3>
           <CountUp className="text-5xl" end={countUp.users} duration={3} />
         </div>
         {/* প্রিমিয়াম ইউজার */}
         <div>
-          <h3 className="font-bold bg-orange-200 p-3 rounded-md">Premium Users</h3>
+          <h3 className="font-bold bg-orange-200 p-3 rounded-md dark:bg-gray-800 dark:text-white/60">Premium Users</h3>
           <CountUp className="text-5xl" end={premium} duration={3} />
         </div>
       </div>

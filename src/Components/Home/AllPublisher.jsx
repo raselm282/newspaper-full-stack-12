@@ -18,10 +18,10 @@ const AllPublisher = () => {
           {publishers.length}
         </span>
       </div>
-      <div className="grid grid-cols-2 md:grid-cols-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
         {publishers.length > 0 ? (
           publishers.map((pub) => (
-            <div className="flex gap-5 p-4 items-center" key={pub._id}>
+            <div className="flex gap-5 p-4 items-center dark:bg-gray-800 dark:text-white/60" key={pub._id}>
               <b>{pub.publisher}</b> <img className="w-10 rounded-lg" src={pub.image} alt="image" />
             </div>
           ))

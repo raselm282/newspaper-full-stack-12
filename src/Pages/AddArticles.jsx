@@ -55,7 +55,7 @@ const AddArticles = () => {
           "content-type": "multipart/form-data",
         },
       });
-// console.log(res.data);
+      // console.log(res.data);
       if (res.data.success) {
         const articleData = {
           title: data.title,
@@ -75,12 +75,15 @@ const AddArticles = () => {
           status: "pending",
         };
 
-        const articlesRes = await axiosPublic.post("/articlesPost", articleData);
-// console.log(articlesRes.data);
+        const articlesRes = await axiosPublic.post(
+          "/articlesPost",
+          articleData
+        );
+        // console.log(articlesRes.data);
         if (articlesRes.data.insertedId) {
           reset();
-          toast.success(`${data.title} Add Successfully`)
-          
+          toast.success(`${data.title} Add Successfully`);
+
           navigate("/myArticles");
         }
       }
@@ -132,7 +135,7 @@ const AddArticles = () => {
   //   };
 
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg">
+    <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg dark:bg-gray-900 dark:text-white/60">
       <Helmet>
         <title>Add Articles</title>
       </Helmet>
@@ -141,10 +144,10 @@ const AddArticles = () => {
         <div className="flex gap-3">
           <div className="form-control w-full my-6">
             <label className="label">
-              <span className="label-text">Title*</span>
+              <span className="label-text dark:text-white/60">Title*</span>
             </label>
             <input
-              className="input input-bordered w-full"
+              className="input input-bordered w-full dark:border dark:border-white/60 dark:bg-gray-900 dark:text-white/60"
               type="text"
               {...register("title", { required: "Title is required" })}
             />
@@ -152,10 +155,11 @@ const AddArticles = () => {
           </div>
 
           <div className="form-control w-full my-6">
-            <label className="label">
-              <span className="label-text">Image*</span>
+            <label className="label dark:text-white/60">
+              <span className="label-text dark:text-white/60">Image*</span>
             </label>
             <input
+              className="dark:bg-gray-900 dark:text-white/60 dark:border dark:border-white/60"
               type="file"
               {...register("image", { required: "Image is required" })}
               accept="image/*"
@@ -168,15 +172,21 @@ const AddArticles = () => {
           {publishers && (
             <div className="form-control w-full my-6">
               <label className="label">
-                <span className="label-text">Publisher*</span>
+                <span className="label-text dark:text-white/60">
+                  Publisher*
+                </span>
               </label>
               <select
-                className="input input-bordered w-full"
+                className="input input-bordered w-full dark:bg-gray-900 dark:text-white/60 dark:border dark:border-white/60"
                 {...register("publisher")}
               >
                 <option value="">Select Publisher</option>
                 {publishers.map((pub) => (
-                  <option key={pub._id} value={pub.publisher}>
+                  <option
+                    className="dark:bg-gray-900 dark:text-white/60"
+                    key={pub._id}
+                    value={pub.publisher}
+                  >
                     {pub.publisher}
                   </option>
                 ))}
@@ -187,14 +197,57 @@ const AddArticles = () => {
 
           <div className="form-control w-full my-6">
             <label className="label">
-              <span className="label-text">Tags*</span>
+              <span className="label-text dark:text-white/60">Tags*</span>
             </label>
             <Controller
               name="tags"
               control={control}
               rules={{ required: "At least one tag is required" }}
               render={({ field }) => (
-                <Select isMulti options={tagOptions} {...field} />
+                // <Select className="dark:bg-gray-900 dark:text-white/60 dark:border dark:border-white/60" isMulti options={tagOptions} {...field} />
+                <Select
+                  {...field}
+                  isMulti
+                  options={tagOptions}
+                  className="dark:text-white"
+                  styles={{
+                    control: (base, state) => ({
+                      ...base,
+                      backgroundColor: state.isFocused ? "#374151" : "#1f2937", // Dark background
+                      borderColor: state.isFocused ? "#4b5563" : "#374151", // Gray border
+                      color: "white",
+                      boxShadow: state.isFocused ? "0 0 0 1px #4b5563" : "none",
+                    }),
+                    menu: (base) => ({
+                      ...base,
+                      backgroundColor: "#1f2937", // Dark dropdown background
+                      color: "white",
+                    }),
+                    option: (base, { isFocused }) => ({
+                      ...base,
+                      backgroundColor: isFocused ? "#374151" : "#1f2937",
+                      color: "white",
+                      cursor: "pointer",
+                    }),
+                    multiValue: (base) => ({
+                      ...base,
+                      backgroundColor: "#4b5563", // Tag background
+                      color: "white",
+                    }),
+                    multiValueLabel: (base) => ({
+                      ...base,
+                      color: "white",
+                    }),
+                    multiValueRemove: (base) => ({
+                      ...base,
+                      color: "white",
+                      ":hover": {
+                        backgroundColor: "#991b1b", // Red hover for remove button
+                        color: "white",
+                      },
+                    }),
+                  }}
+                />
               )}
             />
             {errors.tags && <p>{errors.tags.message}</p>}
@@ -203,10 +256,10 @@ const AddArticles = () => {
 
         <div className="form-control w-full my-6">
           <label className="label">
-            <span className="label-text">Description*</span>
+            <span className="label-text dark:text-white/60">Description*</span>
           </label>
           <textarea
-            className="input input-bordered w-full"
+            className="input input-bordered w-full dark:border dark:border-white/60 dark:bg-gray-900 dark:text-white/60"
             {...register("description", {
               required: "Description is required",
             })}

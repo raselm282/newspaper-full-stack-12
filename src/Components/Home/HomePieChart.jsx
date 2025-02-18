@@ -17,13 +17,13 @@ const HomePieChart = () => {
     pieHole: 0.4,
   };
     return (
-        <div>
+        <div className='dark:bg-gray-900 dark:text-white/60'>
             {/* Infographics & Data Insights Section */}
                   <section style={{ padding: "20px", textAlign: "center" }}>
                   <div className="flex items-center gap-x-3">
                     <p className="font-bold ml-12 my-12 text-3xl">Infographics & Data Insights</p>
                   </div>
-                    <Chart
+                    <Chart className='dark:bg-gray-900 dark:text-white/60'
                       chartType="PieChart"
                       width="500px"
                       height="300px"

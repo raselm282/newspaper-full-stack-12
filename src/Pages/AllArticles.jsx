@@ -139,7 +139,7 @@ const AllArticles = () => {
           <input
             type="text"
             placeholder="Search articles by Title"
-            className="border p-2 rounded w-full text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent"
+            className="border dark:bg-gray-900 dark:text-white/60 p-2 rounded w-full text-gray-700 placeholder-gray-500 bg-white outline-none focus:placeholder-transparent"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
           />
@@ -151,7 +151,7 @@ const AllArticles = () => {
             value={selectedPublisher}
             onChange={(e) => setSelectedPublisher(
               e.target.value)}
-            className="border p-2 rounded"
+            className="border p-2 rounded dark:bg-gray-900 dark:text-white/60"
           >
             <option value="">All Publishers</option>
             <option value="Prothom Alo">Prothom Alo</option>
@@ -168,7 +168,7 @@ const AllArticles = () => {
             value={selectedTags}
             onChange={(e) => setSelectedTags(e.target.value)
             }
-            className="border p-2 rounded w-full"
+            className="border p-2 rounded w-full dark:bg-gray-900 dark:text-white/60"
           >
             <option value="">All Tags</option>
             <option value="Technology">Technology</option>

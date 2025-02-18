@@ -92,7 +92,7 @@ const MyArticles = () => {
   };
   if (loading) return <LoadingSpinner />;
   return (
-    <section className="container px-4 mx-auto">
+    <section className="container px-4 mx-auto dark:text-white/60 dark:bg-gray-900">
       <Helmet>
         <title>My Articles</title>
       </Helmet>
@@ -109,7 +109,7 @@ const MyArticles = () => {
           <div className="inline-block min-w-full py-2 align-middle md:px-6 lg:px-8">
             <div className="overflow-hidden border border-gray-200  md:rounded-lg">
               <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50">
+                <thead className="bg-gray-50 dark:text-white/60 dark:bg-gray-900">
                   <tr>
                     <th
                       scope="col"
@@ -162,7 +162,7 @@ const MyArticles = () => {
                     </th>
                   </tr>
                 </thead>
-                <tbody className="bg-white divide-y divide-gray-200 ">
+                <tbody className="bg-white dark:text-white/60 dark:bg-gray-900 divide-y divide-gray-200 ">
                   {/* Generate dynamic tr */}
                   {articles.map((article, i) => (
                     <tr key={article?._id}>
@@ -188,16 +188,20 @@ const MyArticles = () => {
                       <td className="px-4 py-4 text-sm whitespace-nowrap">
                         <div className="flex items-center gap-x-2">
                           <h2
-                            className={`px-3 py-1  ${
+                            className={`px-3 py-1 uppercase ${
                               article.status === "pending" &&
-                              "text-blue-500 bg-blue-100/60"
+                              "text-blue-500 dark:text-blue-500/50  bg-blue-100/60 dark:bg-green-100/10"
                             } ${
                               article.status === "approved" &&
-                              "text-green-500 bg-green-100/60"
+                              "text-green-500 dark:text-green-500/50 bg-green-100/60 dark:bg-green-100/10"
+                            }
+                            ${
+                              article.status === "deleted" &&
+                              "text-red-500 dark:text-red-500/50 bg-red-100/60 dark:bg-red-100/10"
                             }
                             ${
                               article.status === "declined" &&
-                              "text-red-500 bg-red-100/60"
+                              "text-red-500 dark:text-red-500/50 bg-red-100/60 dark:bg-green-100/10"
                             } text-xs  rounded-full`}
                           >
                             <p className="font-bold">{article.status}</p>
@@ -208,9 +212,9 @@ const MyArticles = () => {
                       <td className="px-4 py-4 text-sm whitespace-nowrap">
                         <div className="flex items-center gap-x-2">
                           <p
-                            className={`px-3 py-1  ${
+                            className={`px-3 py-1 uppercase ${
                               article.isPremium === true &&
-                              "text-green-500 bg-green-100/60"
+                              "text-green-500  dark:bg-green-100/10 bg-green-100/60"
                             } text-sm  rounded-full`}
                           >
                             {article.isPremium ? "yes" : "no"}

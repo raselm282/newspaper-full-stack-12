@@ -23,7 +23,7 @@ const ArticleCard = ({ article }) => {
   //   }
   // }
   return (
-    <div className="card card-compact bg-base-100 shadow-xl">
+    <div className="card card-compact bg-base-100 shadow-xl dark:bg-gray-900 dark:text-white/60 rounded-none">
       <figure>
         <img
           src={article?.image}
@@ -32,7 +32,7 @@ const ArticleCard = ({ article }) => {
         />
       </figure>
       <div className="card-body">
-        <h2 className={`card-title ${article.isPremium && "text-green-500 bg-green-100/60 underline"}`}>Title : {article?.title}</h2>
+        <h2 className={`card-title ${article.isPremium && "text-green-500 bg-green-100/60 dark:bg-gray-900 dark:text-white/60 underline"}`}>Title : {article?.title}</h2>
         <p>Description : {article?.description.slice(0, 100)}...</p>
         <p>Status : {article?.status}</p>
         {article?.isPremium && <p className={`text-green-500 underline`}>Premium</p>}

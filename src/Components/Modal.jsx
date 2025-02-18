@@ -5,7 +5,7 @@ const Modal = ({ isOpen, onClose, onSubmit, children }) => {
   // console.log(children);
   return (
     <div className="fixed inset-0 bg-gray-900 bg-opacity-50 flex justify-center items-center z-50">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-96">
+      <div className="bg-white p-6 rounded-lg shadow-lg w-96 dark:text-white/60 dark:bg-gray-700">
         <h2 className="text-xl font-bold mb-4">Reason for Decline</h2>
         <div>{children}</div>
         <div className="flex justify-end mt-4 gap-2">
