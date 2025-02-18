@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import useArticles from "../../Hooks/useArticles";
 import ArticleCard from "../ArticleCard";
 import LoadingSpinner from "../LoadingSpinner";
+import SectionTitle from "./SectionTitle";
 
 const TrendingArticles = () => {
   const [articles, loading] = useArticles(); 
@@ -17,12 +18,13 @@ const TrendingArticles = () => {
   return (
     <div>
       <div className="flex items-center gap-x-3">
-        <p className="font-bold ml-12 my-12 text-3xl">
+      <SectionTitle heading="All Trending Articles" subHeading="All Trending Articles displays the most popular and widely discussed articles based on user engagement, views, and shares. It helps readers stay updated with the latest news and hot topics across various categories. 🚀"></SectionTitle>
+        {/* <p className="font-bold ml-12 my-12 text-3xl">
           All Trending Articles:{" "}
         </p>
         <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full ">
           {trendingArticles?.length}
-        </span>
+        </span> */}
       </div>
 
       <div className="grid md:grid-cols-3 gap-3">

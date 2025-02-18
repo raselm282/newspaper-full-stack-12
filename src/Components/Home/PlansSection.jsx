@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import SectionTitle from "./SectionTitle";
 
 const PlansSection = () => {
   const navigate = useNavigate();
@@ -32,7 +33,8 @@ const PlansSection = () => {
   return (
     <div className="plans-section">
       <div className="flex items-center gap-x-3">
-        <p className="font-bold ml-12 my-12 text-3xl">Our Plans</p>
+      <SectionTitle heading="Our Plan" subHeading="Our Plan outlines the goals, vision, and strategies for future growth. It highlights key initiatives, milestones, and how we aim to deliver value to users and stakeholders. 🚀"></SectionTitle>
+        {/* <p className="font-bold ml-12 my-12 text-3xl">Our Plans</p> */}
       </div>
       <div className="flex justify-center gap-8">
         {plans.map((plan, index) => (

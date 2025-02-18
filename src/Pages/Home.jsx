@@ -8,6 +8,7 @@ import HomePageModal from "../Components/Home/HomePageModal";
 import SwiperSlider from "../Components/Home/SwiperSlider";
 import HomePageSections from "../Components/Home/HomePageSections";
 import HomePieChart from "../Components/Home/HomePieChart";
+import AboutMe from "../Components/Home/AboutMe";
 // import Navbar from "../Components/Navbar";
 // import Footer from "../Components/Footer";
 // import { Toaster } from "react-hot-toast";
@@ -22,6 +23,7 @@ const Home = () => {
       <SwiperSlider></SwiperSlider>
       <TrendingArticles></TrendingArticles>
       <AllPublisher></AllPublisher>
+      <AboutMe></AboutMe>
       <Statistics />
       <PlansSection />
       <HomePageSections/>

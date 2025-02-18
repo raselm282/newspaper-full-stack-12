@@ -1,4 +1,5 @@
 import React from "react";
+import SectionTitle from "./SectionTitle";
 
 const HomePageSections = () => {
   // Static Columnists Data
@@ -15,7 +16,8 @@ const HomePageSections = () => {
       {/* Featured Columnists Section */}
       <section style={{ padding: "20px", textAlign: "center" }}>
       <div className="flex items-center gap-x-3">
-        <p className="font-bold ml-12 my-12 text-3xl">Featured Columnists</p>
+      <SectionTitle heading="Featured Columnists" subHeading="Featured Columnists highlights select expert writers who contribute regularly with in-depth articles, opinions, and insights on various topics, offering valuable perspectives to the audience. ✍️"></SectionTitle>
+        {/* <p className="font-bold ml-12 my-12 text-3xl">Featured Columnists</p> */}
       </div>
         <div style={{ display: "flex", justifyContent: "center", gap: "20px", flexWrap: "wrap" }}>
           {columnists.map((columnist, index) => (

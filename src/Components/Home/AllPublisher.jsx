@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import usePublishers from "../../Hooks/usePublishers";
 import LoadingSpinner from "../LoadingSpinner";
+import SectionTitle from "./SectionTitle";
 
 const AllPublisher = () => {
     const [publishers, loading] = usePublishers()
@@ -11,9 +12,11 @@ const AllPublisher = () => {
   return (
     <div className="my-7">
       <div className="flex items-center gap-x-3 mb-7 mt-12">
-        <p className="font-bold ml-12 text-3xl">
+      {/* <SectionTitle heading="All Publisher"></SectionTitle> */}
+      <SectionTitle heading="All Publisher" subHeading="All Publishers showcases a list of verified news publishers contributing articles to the platform. It provides details about each publisher, including their name, credibility, and published content. 📢"></SectionTitle>
+        {/* <p className="font-bold ml-12 text-3xl">
           All Publisher :{" "}
-        </p>
+        </p> */}
         <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full ">
           {publishers.length}
         </span>

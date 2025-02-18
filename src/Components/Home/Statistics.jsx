@@ -5,6 +5,7 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useArticles from "../../Hooks/useArticles";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import LoadingSpinner from "../LoadingSpinner";
+import SectionTitle from "./SectionTitle";
 
 const Statistics = () => {
     const axiosPublic = useAxiosPublic()
@@ -28,9 +29,10 @@ const Statistics = () => {
   return (
     <div style={{ textAlign: "center", marginTop: "20px" }}>
         <div className="flex items-center gap-x-3">
-        <p className="font-bold ml-12 my-12 text-3xl">
+        <SectionTitle heading="Statistics" subHeading="Statistics provides insights and analytical data, including user engagement, article performance, and publisher contributions. It helps track trends, measure impact, and optimize content strategy. 📊"></SectionTitle>
+        {/* <p className="font-bold ml-12 my-12 text-3xl">
         Statistics
-        </p>
+        </p> */}
       </div>
       <div className="dark:bg-gray-900 dark:text-white/60" style={{ display: "flex", justifyContent: "space-around", marginTop: "20px" }}>
         {/* মোট ইউজার */}

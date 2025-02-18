@@ -1,5 +1,6 @@
 import React from 'react';
 import { Chart } from "react-google-charts";
+import SectionTitle from './SectionTitle';
 
 const HomePieChart = () => {
     // Data for Pie Chart (Article Category Distribution)
@@ -21,7 +22,8 @@ const HomePieChart = () => {
             {/* Infographics & Data Insights Section */}
                   <section style={{ padding: "20px", textAlign: "center" }}>
                   <div className="flex items-center gap-x-3">
-                    <p className="font-bold ml-12 my-12 text-3xl">Infographics & Data Insights</p>
+                  <SectionTitle heading="Infographics & Data Insights" subHeading="Infographics & Data Insights presents complex data in visually engaging formats, helping users quickly grasp key trends, statistics, and patterns for informed decision-making. 📊"></SectionTitle>
+                    {/* <p className="font-bold ml-12 my-12 text-3xl">Infographics & Data Insights</p> */}
                   </div>
                     <Chart className='dark:bg-gray-900 dark:text-white/60'
                       chartType="PieChart"
