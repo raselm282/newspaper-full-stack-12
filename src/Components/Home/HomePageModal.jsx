@@ -18,11 +18,8 @@ const HomePageModal = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <h1 className="text-3xl font-bold mb-4">Welcome to Our Homepage</h1>
-      <p className="text-lg text-gray-700 mb-8">
-        Explore our content and find something you love!
-      </p>
+    <div>
+      
 
       {showModal && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
