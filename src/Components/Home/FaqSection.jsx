@@ -11,7 +11,7 @@ const FaqSection = () => {
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <div className="mx-auto">
-          <img className="w-[400px] h-[400px]" src={faq} alt="" />
+          <img className="h-[400px]" src={faq} alt="" />
         </div>
         <div>
           <div className="collapse collapse-plus bg-base-200 dark:bg-gray-900 dark:text-white">
