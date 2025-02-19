@@ -7,6 +7,7 @@ import ArticleCard from "../Components/ArticleCard";
 import { Helmet } from "react-helmet-async";
 import useAxiosPublic from "../Hooks/useAxiosPublic";
 import axios from "axios";
+import SectionTitle from "../Components/Home/SectionTitle";
 
 const AllArticles = () => {
   const axiosPublic = useAxiosPublic();
@@ -127,10 +128,12 @@ const AllArticles = () => {
         <title>All Articles</title>
       </Helmet>
       <div className="flex items-center gap-x-3">
-        <p className="font-bold ml-12 text-3xl">All Approved Articles: </p>
-        <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full ">
+      <SectionTitle heading="All Approved Articles"></SectionTitle>
+
+        {/* <p className="font-bold ml-12 text-3xl">All Approved Articles: </p> */}
+        {/* <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full ">
           {approvedArticles.length}
-        </span>
+        </span> */}
       </div>
 
       <div className="flex w-full justify-around my-12 ">

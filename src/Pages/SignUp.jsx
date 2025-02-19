@@ -27,12 +27,14 @@ const SignUp = () => {
   const onSubmit = (data) => {
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
-      // console.log(loggedUser);
-      updateUserProfile(data.name, data.photoURL)
+      console.log(data.contact);
+      updateUserProfile(data.name, data.photoURL, data.contact)
         .then(() => {
           // create user entry in the database
           const userInfo = {
             name: data.name,
+            phoneNumber: data.contact,
+            address: data.address,
             email: data.email,
             photo: data.photoURL,
           };
@@ -86,6 +88,36 @@ const SignUp = () => {
                 />
                 {errors.name && (
                   <span className="text-red-600">Name is required</span>
+                )}
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Contact No</span>
+                </label>
+                <input
+                  type="number"
+                  {...register("contact", { required: true })}
+                  name="contact"
+                  placeholder="Contact No"
+                  className="input input-bordered"
+                />
+                {errors.contact && (
+                  <span className="text-red-600">Contact is required</span>
+                )}
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Address</span>
+                </label>
+                <input
+                  type="text"
+                  {...register("address", { required: true })}
+                  name="address"
+                  placeholder="Address"
+                  className="input input-bordered"
+                />
+                {errors.address && (
+                  <span className="text-red-600">Address is required</span>
                 )}
               </div>
               <div className="form-control">

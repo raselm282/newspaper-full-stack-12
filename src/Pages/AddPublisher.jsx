@@ -63,19 +63,19 @@ const AddPublisher = () => {
     }
   };
   return (
-    <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg">
+    <div className="max-w-3xl mx-auto p-6 bg-white shadow-md rounded-lg dark:text-white/60 dark:bg-gray-900">
       <Helmet>
         <title>Dashboard || Add Publishers</title>
       </Helmet>
-      <h1>Add New Article</h1>
+      <h1>Add a publisher</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex gap-3">
           <div className="form-control w-full my-6">
             <label className="label">
-              <span className="label-text">Add Publisher*</span>
+              <span className="label-text dark:text-white/60">Add Publisher*</span>
             </label>
             <input
-              className="input input-bordered w-full"
+              className="input input-bordered w-full dark:border dark:border-white/50 dark:text-white/60 dark:bg-gray-900"
               type="text"
               {...register("publisher", { required: "Publisher is required" })}
             />
@@ -84,7 +84,7 @@ const AddPublisher = () => {
 
           <div className="form-control w-full my-6">
             <label className="label">
-              <span className="label-text">Image logo*</span>
+              <span className="label-text dark:text-white/60">Image logo*</span>
             </label>
             <input
               type="file"

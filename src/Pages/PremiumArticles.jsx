@@ -3,6 +3,7 @@ import useArticles from "../Hooks/useArticles";
 import { Link } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import { Helmet } from "react-helmet-async";
+import SectionTitle from "../Components/Home/SectionTitle";
 
 const PremiumArticles = () => {
   const [articles] = useArticles();
@@ -16,10 +17,11 @@ const PremiumArticles = () => {
         <title>Premium Articles</title>
       </Helmet>
       <div className="flex items-center gap-x-3">
-        <p className="font-bold ml-12 my-12 text-3xl">Premium Articles: </p>
+      <SectionTitle heading="Premium Articles"></SectionTitle>
+        {/* <p className="font-bold ml-12 my-12 text-3xl">Premium Articles: </p>
         <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full ">
           {premiumArticles.length}
-        </span>
+        </span> */}
       </div>
 
       <div className="container mx-auto my-8">

@@ -3,15 +3,19 @@ import coverImg from "../assets/cover.jpg"
 import useAuth from "../Hooks/useAuth";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import { Helmet } from "react-helmet-async";
+import useUsers from "../Hooks/useUsers";
 
 const MyProfile = () => {
     const { user, loading } = useAuth()
+    const [usersData, refetch] = useUsers();
+    const profile =usersData.filter((item) => item.email === user.email)
+    console.log(profile);
     // const [role, isLoading] = useRole()
     // if ((loading, isLoading)) return <LoadingSpinner />
     if ((loading)) return <LoadingSpinner></LoadingSpinner>
-  
+  console.log(user);
   return (
-    <div className="flex justify-center items-center h-screen">
+    <div className="flex justify-center items-center h-screen dark:text-white/60 dark:bg-gray-900">
       <Helmet>
         <title>Newspaper || My Profile</title>
       </Helmet>
@@ -21,7 +25,7 @@ const MyProfile = () => {
           src={coverImg}
           className="w-full mb-4 rounded-t-lg h-56"
         />
-        <div className="flex flex-col items-center justify-center p-4 -mt-16">
+        <div className="flex flex-col items-center justify-center p-4 -mt-16 dark:text-white/60 dark:bg-gray-900">
           <a href="#" className="relative block">
             <img
               alt="profile"
@@ -33,30 +37,31 @@ const MyProfile = () => {
           <p className="p-2 px-4 text-xs text-white bg-lime-500 rounded-full">
             {/* {role} */}
           </p>
-          <p className="mt-2 text-xl font-medium text-gray-800 ">
+          <p className="mt-2 text-xl font-medium text-gray-800 dark:text-white/60">
             User Id: {user.uid}
           </p>
           <div className="w-full p-2 mt-4 rounded-lg">
-            <div className="flex flex-wrap items-center justify-between text-sm text-gray-600 ">
+            <div className="grid grid-cols-2 gap-3 text-sm text-gray-600 dark:text-white/60">
               <p className="flex flex-col">
                 Name
-                <span className="font-bold text-black ">
-                  {user.displayName}
+                <span className="font-bold text-black dark:text-white/60">
+                  {user?.displayName}
                 </span>
               </p>
               <p className="flex flex-col">
                 Email
-                <span className="font-bold text-black ">{user.email}</span>
+                <span className="font-bold text-black dark:text-white/60">{user?.email}</span>
               </p>
-
-              <div>
+              {profile.map((item,i) =><div className="flex justify-between w-full" item={item} key={i}><p><strong>Phone:</strong> {item.phoneNumber || "Not Provided"}</p>
+                <p><strong>Address:</strong> {item.address || "Not Provided"}</p></div>)}
+              {/* <div>
                 <button className="bg-lime-500 px-10 py-1 rounded-lg text-black cursor-pointer hover:bg-lime-800 block mb-1">
                   Update Profile
                 </button>
                 <button className="bg-lime-500 px-7 py-1 rounded-lg text-black cursor-pointer hover:bg-lime-800">
                   Change Password
                 </button>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

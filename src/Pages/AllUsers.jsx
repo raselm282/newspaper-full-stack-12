@@ -5,20 +5,18 @@ import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import useAuth from "../Hooks/useAuth";
+import SectionTitle from "../Components/Home/SectionTitle";
 
 const AllUsers = () => {
   const {loading} = useAuth()
-  // const [usersData, loading, refetch] = useUsers();
+  const [refetch] = useUsers();
   const axiosSecure = useAxiosSecure();
   // console.log(usersData);
 
   const [itemsPerPage, setItemsPerPage] = useState(3);
   const [currentPage, setCurrentPage] = useState(1);
   const [count, setCount] = useState(0);
-  // const [filter, setFilter] = useState("");
-  // const [sort, setSort] = useState("");
-  // const [search, setSearch] = useState("");
-  // const [searchText, setSearchText] = useState("");
+
   const [jobs, setJobs] = useState([]);
   useEffect(() => {
     const getData = async () => {
@@ -50,7 +48,7 @@ const AllUsers = () => {
     setCurrentPage(value);
   };
 
-// console.log(jobs);
+console.log(jobs);
 
   // Handle making a user an admin
   const makeAdmin = async (id, name, email, photo) => {
@@ -72,8 +70,8 @@ const AllUsers = () => {
         // form.reset();
         // 3. Show toast and navigate
         toast.success("Data Updated Successfully!!!");
-        // navigate("/dashboard/myMarathonList");
         refetch();
+        // navigate("/dashboard/myMarathonList");
       } catch (err) {
         toast.error(err.message);
       }
@@ -89,10 +87,12 @@ const AllUsers = () => {
         <title>Dashboard || All Users</title>
       </Helmet>{" "}
       <div className="flex items-center gap-x-3">
-        <p className="font-bold ml-12 my-12 text-3xl">Total Users Data: </p>
-        <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full ">
+      <SectionTitle heading="Total Users Data"></SectionTitle>
+
+        {/* <p className="font-bold ml-12 my-12 text-3xl">Total Users Data: </p> */}
+        {/* <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full ">
           {jobs.length}
-        </span>
+        </span> */}
       </div>
       <section className="p-8 bg-gray-100 min-h-screen dark:text-white/60 dark:bg-gray-900">
         <h1 className="text-2xl font-semibold mb-6">All Users</h1>

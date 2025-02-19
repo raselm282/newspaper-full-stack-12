@@ -10,6 +10,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { FaEdit } from "react-icons/fa";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import SectionTitle from "../Components/Home/SectionTitle";
 
 const MyArticles = () => {
   const axiosSecure = useAxiosSecure()
@@ -97,11 +98,13 @@ const MyArticles = () => {
         <title>My Articles</title>
       </Helmet>
       <div className="flex items-center gap-x-3">
-        <h2 className="text-lg font-medium text-gray-900 ">My Articles</h2>
+      <SectionTitle heading="My Articles"></SectionTitle>
+
+        {/* <h2 className="text-lg font-medium text-gray-900 ">My Articles</h2>
 
         <span className="px-3 py-1 text-xs text-blue-600 bg-blue-100 rounded-full ">
           {articles?.length}
-        </span>
+        </span> */}
       </div>
 
       <div className="flex flex-col mt-6">

@@ -21,7 +21,7 @@ const HomePageSections = () => {
       </div>
         <div style={{ display: "flex", justifyContent: "center", gap: "20px", flexWrap: "wrap" }}>
           {columnists.map((columnist, index) => (
-            <div className="dark:bg-gray-900 dark:text-white/60" key={index} style={{ border: "1px solid #ddd", padding: "15px", borderRadius: "10px", textAlign: "center", width: "200px" }}>
+            <div className="dark:bg-gray-900 dark:text-white/60" key={index} style={{ border: "1px solid #ddd", padding: "15px", textAlign: "center", width: "200px" }}>
               <img src={columnist.img} alt={columnist.name} style={{ borderRadius: "50%", width: "80px", height: "80px" }} />
               <h3>{columnist.name}</h3>
               <p>{columnist.bio}</p>

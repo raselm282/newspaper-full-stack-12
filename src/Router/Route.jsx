@@ -62,10 +62,7 @@ import ErrorPage from "../Pages/ErrorPage";
                 element: <PrivateRoute><PremiumArticles></PremiumArticles></PrivateRoute>
             },
             
-            {
-                path: "/myProfile",
-                element: <PrivateRoute><MyProfile></MyProfile></PrivateRoute>
-            },
+            
             {
                 path: "/dashboard",
                 element: <PrivateRoute><AdminRoute><Dashboard></Dashboard></AdminRoute></PrivateRoute>,
@@ -79,15 +76,19 @@ import ErrorPage from "../Pages/ErrorPage";
                         element: <PrivateRoute><AllUsers></AllUsers></PrivateRoute>
                     },
                     {
+                        path: "myProfile",
+                        element: <PrivateRoute><MyProfile></MyProfile></PrivateRoute>
+                    },
+                    {
                         path: "addPublisher",
                         element: <PrivateRoute><AddPublisher></AddPublisher></PrivateRoute>
                     },
                     {
                         index: true,
-                        element: <PrivateRoute><AdminHome></AdminHome></PrivateRoute>
+                        element: <PrivateRoute><AllUsers></AllUsers></PrivateRoute>
                     },
                     {
-                        path: "adminHome",
+                        path: "overview",
                         element: <PrivateRoute><AdminHome></AdminHome></PrivateRoute>
                     },
                     

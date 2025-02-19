@@ -60,7 +60,7 @@ useEffect(() => {
 }, [isDarkMode]);
 
   return (
-    <div className='sticky left-0 top-0 py-2  backdrop-blur-md w-full z-50 dark:bg-black/50 dark:text-white/60 bg-gradient-to-r from-yellow-400 to-yellow-600 dark:from-yellow-400/50 dark:to-yellow-600/50 mx-auto'>
+    <div className='sticky left-0 top-0 py-2  backdrop-blur-md w-full z-50 dark:text-white/60 bg-gradient-to-r from-yellow-400/80 to-yellow-600/80 dark:from-yellow-400/50 dark:to-yellow-600/50 mx-auto'>
       <div className="navbar max-w-[90%] mx-auto p-0">
         <div className="navbar-start">
           <div className="dropdown">
@@ -100,7 +100,7 @@ useEffect(() => {
         </div>
         <div className="navbar-end">
         {
-              user? <><Link to={'/myProfile'}><img src={user?.photoURL} className="w-14 h-14 rounded-full mr-3" alt="" /></Link>{' '} <button onClick={handleSignOut} className="btn">Logout <FaSignOutAlt/></button></> : <><Link  className="mr-4 text-teal-500 btn" to={"/register"}>Register</Link>
+              user? <><Link to={'dashboard/myProfile'}><img src={user?.photoURL} className="w-14 h-14 rounded-full mr-3" alt="" /></Link>{' '} <button onClick={handleSignOut} className="btn">Logout <FaSignOutAlt/></button></> : <><Link  className="mr-4 text-teal-500 btn" to={"/register"}>Register</Link>
           <Link  to={"/login"} className="btn">Login</Link></>
           }
           {/* <Link to={'/login'} className="btn">Login</Link>
