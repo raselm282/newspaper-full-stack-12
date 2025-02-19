@@ -65,7 +65,7 @@ const AllArticlesPage = () => {
         isPremium: newPremium,
       });
       // call refetch to refresh ui(fetch orders data again)
-      refetch();
+      // refetch();
       toast.success("Premium Updated");
     } catch (err) {
       // console.log(err);
@@ -78,12 +78,15 @@ const AllArticlesPage = () => {
     // if (status === newStatus) return
     try {
       // update order status
-      await axiosSecure.patch(`/articlesStatus/${id}`, {
+      const response = await axiosSecure.patch(`/articlesStatusChange/${id}`, {
         status: newStatus,
         reason: reasons,
       });
+      if (!response?.data) {
+        throw new Error("Invalid server response");
+      }
       // call refetch to refresh ui(fetch orders data again)
-      refetch();
+      // refetch();
       toast.success("Status Updated");
     } catch (err) {
       // console.log(err);

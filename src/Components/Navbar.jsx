@@ -31,7 +31,7 @@ const Navbar = () => {
     <li><NavLink to={'/addArticles'}>Add Articles</NavLink></li>
     <li><NavLink to={'/allArticles'}>All Articles</NavLink></li>
     <li><NavLink to={'/subscription'}>Subscription</NavLink></li>
-    { user && isAdmin && <><li><NavLink to={'/dashboard'}>Dashboard</NavLink></li></>}
+    { user && <><li><NavLink to={'/dashboard'}>Dashboard</NavLink></li></>}
     <li><NavLink to={'/myArticles'}>MY Articles</NavLink></li>
     <li><NavLink to={'/premiumArticles'}>Premium Articles</NavLink></li>
     

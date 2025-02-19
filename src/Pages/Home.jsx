@@ -28,7 +28,7 @@ const Home = () => {
       <PlansSection />
       <HomePageSections/>
       <HomePieChart/>
-      {/* <HomePageModal/> */}
+      <HomePageModal/>
     </div>
   );
 };

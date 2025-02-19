@@ -65,7 +65,7 @@ import ErrorPage from "../Pages/ErrorPage";
             
             {
                 path: "/dashboard",
-                element: <PrivateRoute><AdminRoute><Dashboard></Dashboard></AdminRoute></PrivateRoute>,
+                element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
                 children: [
                     {
                         path: "allArticlesPage",
